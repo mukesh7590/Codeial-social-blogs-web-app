@@ -8,7 +8,7 @@ const Home = ({ posts }) => {
           <div className={styles.postHeader}>
             <div className={styles.postAvatar}>
               <img
-                src="https://cdn-icons.flaticon.com/png/512/2202/premium/2202112.png?token=exp=1654081045~hmac=b87070b20a51702fc3e32a6026a3e6c2"
+                src="https://cdn-icons.flaticon.com/png/512/668/premium/668709.png?token=exp=1654103285~hmac=0584de94ed969a63b0669abf95687970"
                 alt="user-pic"
               />
               <div>
@@ -21,7 +21,7 @@ const Home = ({ posts }) => {
             <div className={styles.postActions}>
               <div className={styles.postLike}>
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/633/633991.png"
+                  src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
                   alt="likes-icon"
                 />
                 <span>5</span>
@@ -29,7 +29,7 @@ const Home = ({ posts }) => {
 
               <div className={styles.postCommentsIcon}>
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/3193/premium/3193015.png?token=exp=1654081273~hmac=43d63a1d1a76d868949d63285207b717"
+                  src="https://cdn-icons-png.flaticon.com/512/134/134808.png"
                   alt="comments-icon"
                 />
                 <span>2</span>
