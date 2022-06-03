@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./styles/index.css";
-import { App } from "./components";
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './styles/index.css';
+import { App } from './components';
+import { AuthProvider } from './providers/AuthProvider';
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <React.StrictMode>
+  <React.StrictMode>
+    <AuthProvider>
       <App />
-   </React.StrictMode>
+    </AuthProvider>
+  </React.StrictMode>
 );
