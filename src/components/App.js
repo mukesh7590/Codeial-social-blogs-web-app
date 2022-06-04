@@ -1,6 +1,6 @@
 // import { getPosts } from '../api';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home, Login, Signup } from '../pages';
+import { Home, Login, Signup, Settings } from '../pages';
 import { Loader, Navbar } from './';
 import { useAuth } from '../hooks';
 
@@ -20,11 +20,13 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home  />} />
+          <Route exact path="/" element={<Home />} />
 
           <Route exact path="/login" element={<Login />} />
 
           <Route exact path="/register" element={<Signup />} />
+
+          <Route exact path="/settings" element={<Settings />} />
 
           <Route path="*" element={<Page404 />} />
         </Routes>
