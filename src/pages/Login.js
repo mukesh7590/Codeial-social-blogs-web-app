@@ -23,6 +23,7 @@ const Login = () => {
     }
 
     const response = await auth.login(email, password);
+    
     if (response.success) {
       toast('Successfully Loged in', { type: 'success' });
     } else {
