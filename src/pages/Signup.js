@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,7 +46,7 @@ const Signup = () => {
 
     if (response.success) {
       // history.push('/login');
-      navigate('/login')
+      navigate('/login');
       setSigningUp(false);
 
       toast('User registered successfully, please login now', {
@@ -60,6 +60,10 @@ const Signup = () => {
 
     setSigningUp(false);
   };
+
+  if (auth.user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <form className={styles.loginForm} onSubmit={handleFormSubmit}>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import styles from '../styles/login.module.css';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,7 +13,7 @@ const Login = () => {
   const [loggingIn, setLoggingIn] = useState(false);
 
   const auth = useAuth();
-  console.log('AUTH => ', auth);
+  // console.log('AUTH => ', auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ const Login = () => {
     }
 
     const response = await auth.login(email, password);
-    
+
     if (response.success) {
       toast('Successfully Loged in', { type: 'success' });
     } else {
@@ -32,6 +33,10 @@ const Login = () => {
 
     setLoggingIn(false);
   };
+
+  if (auth.user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>

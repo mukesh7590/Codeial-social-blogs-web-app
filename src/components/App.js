@@ -1,8 +1,24 @@
 // import { getPosts } from '../api';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
 import { Home, Login, Signup, Settings } from '../pages';
 import { Loader, Navbar } from './';
 import { useAuth } from '../hooks';
+
+
+const PrivateRoute = ({ children }) => {
+  // const isAuthenticated = true;
+  const auth = useAuth();
+  if (auth.user) {
+    return children;
+  }
+
+  return <Navigate to="/login" />;
+};
 
 const Page404 = () => {
   return <h1>404</h1>;
@@ -26,7 +42,17 @@ function App() {
 
           <Route exact path="/register" element={<Signup />} />
 
-          <Route exact path="/settings" element={<Settings />} />
+          {/* <PrivateRoute exact path="/settings" element={<Settings />} /> */}
+  
+          <Route
+            exact
+            path="/settings"
+            element={
+              <PrivateRoute>
+                <Settings />
+              </PrivateRoute>
+            }
+          />
 
           <Route path="*" element={<Page404 />} />
         </Routes>
