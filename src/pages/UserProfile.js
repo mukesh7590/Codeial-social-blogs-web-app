@@ -9,8 +9,8 @@ const UserProfile = () => {
   const location = useLocation();
   console.log('location => ', location);
 
-  // const { user = {} } = location.state;
-  // console.log('user => ', user);
+  const { user = {} } = location.state;
+  console.log('user => ', user);
   // const user = {};
 
   return (
@@ -24,13 +24,13 @@ const UserProfile = () => {
 
       <div className={styles.field}>
         <div className={styles.fieldLabel}>Email</div>
-        <div className={styles.fieldValue}></div>
+        <div className={styles.fieldValue}>{user.email}</div>
       </div>
 
       <div className={styles.field}>
         <div className={styles.fieldLabel}>Name</div>
 
-        <div className={styles.fieldValue}></div>
+        <div className={styles.fieldValue}>{user.name}</div>
       </div>
 
       <div className={styles.btnGrp}>

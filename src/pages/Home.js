@@ -41,7 +41,7 @@ const Home = () => {
                 <Link
                   to={`/user/${post.user._id}`}
                   state={{
-                    user: post.user.name,
+                    user: post.user,
                   }}
                   className={styles.postAuthor}
                 >
