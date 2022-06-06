@@ -5,10 +5,9 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom';
-import { Home, Login, Signup, Settings } from '../pages';
+import { Home, Login, Signup, Settings, UserProfile } from '../pages';
 import { Loader, Navbar } from './';
 import { useAuth } from '../hooks';
-
 
 const PrivateRoute = ({ children }) => {
   // const isAuthenticated = true;
@@ -42,8 +41,6 @@ function App() {
 
           <Route exact path="/register" element={<Signup />} />
 
-          {/* <PrivateRoute exact path="/settings" element={<Settings />} /> */}
-  
           <Route
             exact
             path="/settings"
@@ -54,6 +51,15 @@ function App() {
             }
           />
 
+          <Route
+            exact
+            path="//user/:userId"
+            element={
+              <PrivateRoute>
+                <UserProfile />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>
