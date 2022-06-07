@@ -1,8 +1,8 @@
 import { API_URLS, getFormBody, LOCALSTORAGE_TOKEN_KEY } from '../utils';
 
 const customFetch = async (url, { body, ...customConfig }) => {
-  console.log('...customConfig => ', customConfig);
-  console.log('body => ', body);
+  // console.log('...customConfig => ', customConfig);
+  // console.log('body => ', body);
   const token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
   // console.log('token =====> ', token);
   const headers = {
@@ -12,7 +12,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
-  console.log(' customConfig.headers => ', customConfig.headers);
+  // console.log(' customConfig.headers => ', customConfig.headers);
   const config = {
     ...customConfig,
     headers: {
@@ -25,7 +25,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
     config.body = getFormBody(body);
   }
 
-  console.log('Config => ', config);
+  // console.log('Config => ', config);
 
   try {
     const response = await fetch(url, config);
@@ -48,7 +48,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
   }
 };
 
-export const getPosts = (page = 1, limit = 5) => {
+export const getPosts = (page = 1, limit = 15) => {
   return customFetch(API_URLS.posts(page, limit), {
     method: 'GET',
   });
@@ -72,5 +72,29 @@ export const editProfile = async (userId, name, password, confirmPassword) => {
   return customFetch(API_URLS.editUser(), {
     method: 'POST',
     body: { id: userId, name, password, confirm_password: confirmPassword },
+  });
+};
+
+export const fetchUserProfile = (userId) => {
+  return customFetch(API_URLS.userInfo(userId), {
+    method: 'GET',
+  });
+};
+
+export const fetchUserFriends = () => {
+  return customFetch(API_URLS.friends(), {
+    method: 'GET',
+  });
+};
+
+export const addFriend = (userId) => {
+  return customFetch(API_URLS.createFriendship(userId), {
+    method: 'POST',
+  });
+};
+
+export const removeFriend = (userId) => {
+  return customFetch(API_URLS.removeFriend(userId), {
+    method: 'POST',
   });
 };
