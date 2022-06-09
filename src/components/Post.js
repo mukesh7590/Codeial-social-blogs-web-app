@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { useToasts } from 'react-toast-notifications';
 
-import { createComment } from '../api';
+import { createComment, toggleLike } from '../api';
 import { usePosts } from '../hooks';
 import styles from '../styles/home.module.css';
 import { Comment } from './';
@@ -12,7 +12,7 @@ const Post = ({ post }) => {
   const [comment, setComment] = useState('');
   const [creatingComment, setCreatingComment] = useState(false);
   const posts = usePosts();
-//   const { addToast } = useToasts();
+  //   const { addToast } = useToasts();
 
   const handleAddComment = async (e) => {
     if (e.key === 'Enter') {
@@ -28,13 +28,36 @@ const Post = ({ post }) => {
         //   appearance: 'success',
         // });
       } else {
-        console.log('Comment NOT created yet!')
+        console.log('Comment NOT created yet!');
         // addToast(response.message, {
         //   appearance: 'error',
         // });
       }
 
       setCreatingComment(false);
+    }
+  };
+
+  const handlePostLikeClick = async () => {
+    const response = await toggleLike(post._id, 'Post');
+
+    if (response.success) {
+      if (response.data.deleted) {
+        console.log('Like Removed Successfully!');
+        // addToast('Comment created successfully!', {
+        //   appearance: 'success',
+        // });
+      } else {
+        console.log('Liked Successfully');
+        // addToast(response.message, {
+        //   appearance: 'error',
+        // });
+      }
+    } else {
+      console.log('Error in the LIKE!');
+      // addToast(response.message, {
+      //   appearance: 'error',
+      // });
     }
   };
 
@@ -78,10 +101,12 @@ const Post = ({ post }) => {
 
         <div className={styles.postActions}>
           <div className={styles.postLike}>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
-              alt="likes-icon"
-            />
+            <button onClick={handlePostLikeClick}>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                alt="likes-icon"
+              />
+            </button>
             <span>{post.likes.length}</span>
           </div>
 
