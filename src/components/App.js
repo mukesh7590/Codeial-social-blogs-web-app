@@ -1,4 +1,3 @@
-// import { getPosts } from '../api';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,18 +5,18 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { Home, Login, Signup, Settings, UserProfile } from '../pages';
-import { Loader, Navbar } from './';
+import { Loader } from './';
 import { useAuth } from '../hooks';
 
-const PrivateRoute = ({ children }) => {
-  // const isAuthenticated = true;
-  const auth = useAuth();
-  if (auth.user) {
-    return children;
-  }
+// const PrivateRoute = ({ children }) => {
+//   // const isAuthenticated = true;
+//   const auth = useAuth();
+//   if (auth.user) {
+//     return children;
+//   }
 
-  return <Navigate to="/login" />;
-};
+//   return <Navigate to="/login" />;
+// };
 
 const Page404 = () => {
   return <h1>404</h1>;
@@ -25,7 +24,6 @@ const Page404 = () => {
 
 function App() {
   const auth = useAuth();
-
   if (auth.loading) {
     return <Loader />;
   }
@@ -33,33 +31,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-
-          <Route exact path="/login" element={<Login />} />
-
-          <Route exact path="/register" element={<Signup />} />
-
-          <Route
-            exact
-            path="/settings"
-            element={
-              <PrivateRoute>
-                <Settings />
-              </PrivateRoute>
-            }
-          />
-
-          <Route
-            exact
-            path="//user/:userId"
-            element={
-              <PrivateRoute>
-                <UserProfile />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Signup />} />
+          </Route>
+          <Route exact path="/settings" element={<Settings />} />
+          <Route exact path="/user/:userId" element={<UserProfile />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>

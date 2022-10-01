@@ -1,7 +1,6 @@
 import { API_URLS, getFormBody, LOCALSTORAGE_TOKEN_KEY } from '../utils';
 
 const customFetch = async (url, { body, ...customConfig }) => {
-  // console.log('...customConfig => ', customConfig);
   // console.log('body => ', body);
   const token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
   // console.log('token =====> ', token);
@@ -48,9 +47,10 @@ const customFetch = async (url, { body, ...customConfig }) => {
   }
 };
 
-export const getPosts = (page = 1, limit = 15) => {
-  return customFetch(API_URLS.posts(page, limit), {
-    method: 'GET',
+export const register = async (name, email, password, confirmPassword) => {
+  return customFetch(API_URLS.signup(), {
+    method: 'POST',
+    body: { name, email, password, confirm_password: confirmPassword },
   });
 };
 
@@ -61,28 +61,8 @@ export const login = (email, password) => {
   });
 };
 
-export const register = async (name, email, password, confirmPassword) => {
-  return customFetch(API_URLS.signup(), {
-    method: 'POST',
-    body: { name, email, password, confirm_password: confirmPassword },
-  });
-};
-
-export const editProfile = async (userId, name, password, confirmPassword) => {
-  return customFetch(API_URLS.editUser(), {
-    method: 'POST',
-    body: { id: userId, name, password, confirm_password: confirmPassword },
-  });
-};
-
-export const fetchUserProfile = (userId) => {
-  return customFetch(API_URLS.userInfo(userId), {
-    method: 'GET',
-  });
-};
-
-export const fetchUserFriends = () => {
-  return customFetch(API_URLS.friends(), {
+export const getPosts = (page = 1, limit = 15) => {
+  return customFetch(API_URLS.posts(page, limit), {
     method: 'GET',
   });
 };
@@ -90,6 +70,12 @@ export const fetchUserFriends = () => {
 export const addFriend = (userId) => {
   return customFetch(API_URLS.createFriendship(userId), {
     method: 'POST',
+  });
+};
+
+export const fetchUserFriends = () => {
+  return customFetch(API_URLS.friends(), {
+    method: 'GET',
   });
 };
 
@@ -108,6 +94,19 @@ export const addPost = (content) => {
   });
 };
 
+export const toggleLike = (itemId, itemType) => {
+  return customFetch(API_URLS.toggleLike(itemId, itemType), {
+    method: 'POST',
+  });
+};
+
+// FETCH LIKES - returning the empty array list so dont use this function
+export const fetchLikes = (itemId, itemType) => {
+  return customFetch(API_URLS.getLikes(itemId, itemType), {
+    method: 'GET',
+  });
+};
+
 export const createComment = async (content, postId) => {
   return customFetch(API_URLS.comment(), {
     method: 'POST',
@@ -118,9 +117,23 @@ export const createComment = async (content, postId) => {
   });
 };
 
-export const toggleLike = (itemId, itemType) => {
-  return customFetch(API_URLS.toggleLike(itemId, itemType), {
+// DELETE COMMENT
+export const deletingComment = async (commentId) => {
+  return customFetch(API_URLS.deleteComment(commentId), {
+    method: 'DELETE',
+  });
+};
+
+export const editProfile = async (userId, name, password, confirmPassword) => {
+  return customFetch(API_URLS.editUser(), {
     method: 'POST',
+    body: { id: userId, name, password, confirm_password: confirmPassword },
+  });
+};
+
+export const fetchUserProfile = (userId) => {
+  return customFetch(API_URLS.userInfo(userId), {
+    method: 'GET',
   });
 };
 

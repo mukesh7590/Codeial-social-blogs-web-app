@@ -1,8 +1,7 @@
-import Home from './Home';
-import { Login } from './Login';
-import { Signup } from './Signup';
-import { Settings } from './Settings';
-import { UserProfile } from './UserProfile';
-
+import Home from './home/Home';
+import { Login } from './login/Login';
+import { Signup } from './Signup/Signup';
+import { Settings } from './setting/Settings';
+import { UserProfile } from './profile/UserProfile';
 
 export { Home, Settings, Login, Signup, UserProfile };

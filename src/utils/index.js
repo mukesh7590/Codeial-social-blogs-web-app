@@ -25,6 +25,7 @@ export const removeItemFromLocalStorage = (key) => {
 };
 
 export const getFormBody = (params) => {
+  console.log('get form body BEfore params=>', params);
   let formBody = [];
 
   for (let property in params) {
@@ -33,6 +34,7 @@ export const getFormBody = (params) => {
 
     formBody.push(encodedKey + '=' + encodedValue);
   }
+  console.log('getformbody function formBody array =>', formBody);
 
   return formBody.join('&'); // 'username=aakash&password=123213'
 };

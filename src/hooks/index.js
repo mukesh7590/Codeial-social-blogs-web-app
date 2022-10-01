@@ -7,7 +7,7 @@ import {
   fetchUserFriends,
   getPosts,
 } from '../api';
-import jwt from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import {
   setItemInLocalStorage,
   LOCALSTORAGE_TOKEN_KEY,
@@ -28,7 +28,8 @@ export const useProvideAuth = () => {
       const userToken = getItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
 
       if (userToken) {
-        const user = jwt(userToken);
+        const user = jwtDecode(userToken);
+
         const response = await fetchUserFriends();
 
         let friends = [];
@@ -55,6 +56,8 @@ export const useProvideAuth = () => {
     // }
     // setLoading(false);
   }, []);
+
+  // console.log('useProvideAuth Hook in useEffect =>', user);
 
   const updateUser = async (userId, name, password, confirmPassword) => {
     const response = await editProfile(userId, name, password, confirmPassword);
@@ -97,6 +100,7 @@ export const useProvideAuth = () => {
   };
 
   const signup = async (name, email, password, confirmPassword) => {
+    // calling the api calls here below
     const response = await register(name, email, password, confirmPassword);
 
     if (response.success) {
@@ -174,6 +178,7 @@ export const useProvidePosts = () => {
     setPosts(newPosts);
   };
 
+  // manage the state after adding comment
   const addComment = (comment, postId) => {
     const newPosts = posts.map((post) => {
       if (post._id === postId) {
@@ -185,10 +190,28 @@ export const useProvidePosts = () => {
     setPosts(newPosts);
   };
 
+  //
+  const deleteComment = (commentID, post) => {
+    const remainingComments = post.comments.filter(
+      (item) => item._id !== commentID
+    );
+
+    const postId = post._id;
+    const newPosts = posts.map((item) => {
+      if (item._id === postId) {
+        item.comments = remainingComments;
+      }
+      return item;
+    });
+
+    setPosts(newPosts);
+  };
+
   return {
     data: posts,
     loading,
     addPostToState,
     addComment,
+    deleteComment,
   };
 };

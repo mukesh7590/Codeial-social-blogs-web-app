@@ -1,0 +1,42 @@
+.homeContainer {
+  margin: auto;
+  display: flex;
+  height: 100%;
+  flex: row wrap;
+  width: 80%;
+}
+.leftPart {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 70%;
+  padding: 10px;
+}
+
+.rightPart {
+  width: 30%;
+  padding-top: 10px;
+}
+
+.feedWrapper {
+  padding: 20px;
+}
+
+.avatarImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.iconButton {
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: green;
+  font-weight: 500;
+  margin-right: 20px;
+  cursor: pointer;
+  color: white;
+}
