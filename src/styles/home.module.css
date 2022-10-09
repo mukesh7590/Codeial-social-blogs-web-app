@@ -80,22 +80,7 @@
 .postCommentsIcon span {
   margin-left: 7px;
 }
-.postCommentBox {
-  padding: 10px 10px;
-}
-.postCommentBox input {
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  height: 35px;
-  margin: 0 auto;
-  width: 100%;
-  font-size: 15px;
-  box-sizing: border-box;
-  padding: 5px;
-}
-.postCommentBox input:focus {
-  outline: none;
-}
+
 .postCommentsList {
   padding: 5px 10px;
   position: relative;

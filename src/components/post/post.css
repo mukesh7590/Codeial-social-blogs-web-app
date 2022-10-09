@@ -31,15 +31,34 @@
 .postUsername {
   font-size: 15px;
   font-weight: 500;
-  margin: 0 10px;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
-.postDate {
-  font-size: 12px;
+.postUsername div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.link {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.tabLink {
+  font-size: 16px;
 }
 
 .postCenter {
   margin: 20px 0;
+}
+.postText {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.postDate,
+.postLikeCounter {
+  font-size: 12px;
 }
 
 .postImg {
@@ -68,14 +87,32 @@
   cursor: pointer;
 }
 
-.postLikeCounter {
-  font-size: 15px;
-}
-
 .postCommentText {
   cursor: pointer;
-  border-bottom: 1px dashed gray;
-  font-size: 15px;
+  /* border-bottom: 1px dashed gray; */
+  font-size: 12px;
+}
+
+.postCommentBox {
+  padding: 10px 10px;
+}
+.postCommentBox input {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  height: 35px;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.postCommentBox input:focus {
+  outline: none;
+}
+.postBottomRight{
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .postCommentsList {
   position: relative;

@@ -12,6 +12,7 @@ const Rightbar = () => {
   return (
     <div className="containerLeftPart">
       <div className="rightbarTitle">Friends</div>
+      <hr className="shareHr" />
       <FriendsList />
     </div>
   );

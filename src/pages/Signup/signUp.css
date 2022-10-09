@@ -41,15 +41,15 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.loginForm {
-    height: 400px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.signupForm {
+  height: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .loginInput {
   height: 50px;
@@ -63,8 +63,15 @@
   outline: none;
 }
 
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
 .loginButton {
   height: 50px;
+  width: 100px;
   border-radius: 10px;
   border: none;
   background-color: #1775ee;
@@ -80,7 +87,7 @@
 }
 
 .loginRegisterButton {
-  width: 60%;
+  width: 100px;
   align-self: center;
   height: 50px;
   border-radius: 10px;

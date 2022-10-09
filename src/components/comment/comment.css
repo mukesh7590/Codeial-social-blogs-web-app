@@ -8,3 +8,74 @@
   justify-items: center;
   /* justify-content: space-between; */
 }
+/* kjkljkl */
+
+.commentTopLeft {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.commentProfileImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* object-fit: cover; */
+}
+
+.commentUsername {
+  font-size: 14px;
+  font-weight: 400;
+  color: blue;
+  margin-right: 10px;
+}
+
+.commentUsername div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.link {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.commentTabLink {
+  font-size: 16px;
+}
+
+.commentDate,
+.commentLikeCounter {
+  font-size: 12px;
+}
+
+.commentCenter {
+  margin: 5px;
+}
+.commentText {
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+/* hdfjkhsjkfhs */
+
+.commentBottomLeft {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentLikeIcon,
+.commentDeleteIcon {
+  width: 21px;
+  height: 21px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.commentLike span,
+.postCommentsIcon span {
+  margin-left: 7px;
+}
+
+/* dfs */

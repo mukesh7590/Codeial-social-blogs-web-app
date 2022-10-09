@@ -74,31 +74,49 @@ const Post = ({ post }) => {
     <div className="post">
       <div className="postWrapper" key={`post-${post._id}`}>
         <div className="postTop">
+          
+          
           <div className="postTopLeft">
             <span className="postUsername">
-              <Link
+              <Link className='link'
                 to={`/user/${post.user._id}`}
                 state={{
                   user: post.user,
                 }}
               >
-                <img
-                  className="postProfileImg"
-                  src="https://cdn-icons-png.flaticon.com/512/7669/7669149.png"
-                  alt=""
-                />
-                {post.user.name}
+                <div>
+                  <img
+                    className="postProfileImg"
+                    src="https://cdn-icons-png.flaticon.com/512/7669/7669149.png"
+                    alt=""
+                  />
+                  <span className="tabLink">{post.user.name}</span>
+                </div>
               </Link>
             </span>
             <span className="postDate">a minute ago</span>
           </div>
+
+
+
+
+
+
+
+
           <div className="postTopRight">
             <MoreVert />
           </div>
         </div>
+
+
+
+
         <div className="postCenter">
           <span className="postText">{post.content}</span>
         </div>
+
+
         <div className="postBottom">
           <div className="postBottomLeft">
             <img
@@ -126,7 +144,7 @@ const Post = ({ post }) => {
           </div>
         </div>
 
-        <div className={styles.postCommentBox}>
+        <div className="postCommentBox">
           <input
             placeholder="Start typing a comment"
             value={comment}
@@ -149,81 +167,6 @@ const Post = ({ post }) => {
     </div>
   );
 
-  // <div className={styles.postWrapper} key={`post-${post._id}`}>
-  //   <div className={styles.postHeader}>
-  //     <div className={styles.postAvatar}>
-  //       <img
-  //         src="https://cdn-icons-png.flaticon.com/512/7669/7669149.png"
-  //         alt="user-pic"
-  //       />
-  //       <div>
-  //         {/* <span className={styles.postAuthor}>{post.user.name}</span> */}
-  //         <Link
-  //           to={`/user/${post.user._id}`}
-  //           state={{
-  //             user: post.user,
-  //           }}
-  //           className={styles.postAuthor}
-  //         >
-  //           {post.user.name}
-  //         </Link>
-
-  //         {/* <Link
-  //               to={{
-  //                 pathname: `/user/${post.user._id}`,
-  //                 state: {
-  //                   user: post.user.name,
-  //                 },
-  //               }}
-  //               className={styles.postAuthor}
-  //             >
-  //               {post.user.name}
-  //             </Link> */}
-
-  //         <span className={styles.postTime}>a minute ago</span>
-  //       </div>
-  //     </div>
-
-  //     <div className={styles.postContent}>{post.content}</div>
-
-  //     <div className={styles.postActions}>
-  //       <div className={styles.postLike}>
-  //         <button onClick={handlePostLikeClick}>
-  //           <img
-  //             src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
-  //             alt="likes-icon"
-  //           />
-  //         </button>
-  //         <span>{post.likes.length}</span>
-  //       </div>
-
-  //       <div className={styles.postCommentsIcon}>
-  //         <img
-  //           src="https://cdn-icons-png.flaticon.com/512/134/134808.png"
-  //           alt="comments-icon"
-  //         />
-  //         <span>{post.comments.length}</span>
-  //       </div>
-  //     </div>
-
-  // POST COMMENTS CONTAINER HERE
-
-  //     <div className={styles.postCommentBox}>
-  //       <input
-  //         placeholder="Start typing a comment"
-  //         value={comment}
-  //         onChange={(e) => setComment(e.target.value)}
-  //         onKeyDown={handleAddComment}
-  //       />
-  //     </div>
-
-  //     <div className={styles.postCommentsList}>
-  //       {post.comments.map((comment) => (
-  //         <Comment comment={comment} key={`post-comment-${comment._id}`} />
-  //       ))}
-  //     </div>
-  //   </div>
-  // </div>
 };
 
 Post.propTypes = {

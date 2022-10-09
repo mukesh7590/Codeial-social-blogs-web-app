@@ -1,4 +1,4 @@
-import styles from '../../styles/setting.module.css';
+
 import { useAuth } from '../../hooks';
 import { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
@@ -131,7 +131,7 @@ const Settings = () => {
                     {savingForm ? 'Saving profile...' : 'Save profile'}
                   </button>
                   <button
-                    className="editBtn"
+                    className="goBack"
                     onClick={() => setEditMode(false)}
                   >
                     Go back

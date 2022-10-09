@@ -72,8 +72,9 @@ const Signup = () => {
             Connect with coders and the world around you on Codeial.
           </span>
         </div>
+
         <div className="loginRight">
-          <form className="loginForm" onSubmit={handleFormSubmit}>
+          <form className="signupForm" onSubmit={handleFormSubmit}>
             <input
               className="loginInput"
               placeholder="Name"
@@ -83,6 +84,7 @@ const Signup = () => {
               onChange={(e) => setName(e.target.value)}
               autoComplete="new-password"
             />
+
             <input
               className="loginInput"
               placeholder="Email"
@@ -91,6 +93,7 @@ const Signup = () => {
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="new-password"
             />
+
             <input
               className="loginInput"
               placeholder="Password"
@@ -99,6 +102,7 @@ const Signup = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
             <input
               className="loginInput"
               placeholder="Confirm Password"
@@ -108,21 +112,22 @@ const Signup = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
 
-            <button className="loginButton" disabled={signingUp}>
-              {signingUp ? 'Signing Up...' : 'Sign Up'}
-            </button>
-            <ToastContainer />
-            <Link to="/login">
-              <button className="loginRegisterButton">Sign In </button>
-            </Link>
+            <div className="loginButtonContainer">
+              <button className="loginButton" disabled={signingUp}>
+                {signingUp ? 'Signing Up...' : 'Sign Up'}
+              </button>
+
+              <ToastContainer />
+
+              <Link to="/login">
+                <button className="loginRegisterButton">Sign In </button>
+              </Link>
+            </div>
           </form>
         </div>
       </div>
     </div>
-
-
   );
 };
 
 export { Signup };
-    

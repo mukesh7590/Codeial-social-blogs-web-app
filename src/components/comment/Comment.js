@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import ReplyIcon from '@mui/icons-material/Reply';
-import ReplyAllIcon from '@mui/icons-material/ReplyAll';
+import { Link } from 'react-router-dom';
+
 import './comment.css';
 import styles from '../../styles/home.module.css';
 import { useState } from 'react';
 import { deletingComment, toggleLike } from '../../api';
-import { Button } from '@mui/material';
+
 import { usePosts } from '../../hooks';
 
 const Comment = ({ comment, post }) => {
@@ -51,15 +51,56 @@ const Comment = ({ comment, post }) => {
 
   return (
     <div className={styles.postCommentsItem}>
-      <div className={styles.postCommentHeader}>
-        <span className={styles.postCommentAuthor}>{comment.user.name}</span>
-        <span className={styles.postCommentTime}>a minute ago</span>
-        <span className={styles.postCommentLikes}>22</span>
+      <div className="commentTopLeft">
+        <span className="commentUsername">
+          <Link
+            className="link"
+            to={`/user/${post.user._id}`}
+            state={{
+              user: post.user,
+            }}
+          >
+            <div>
+              <img
+                className="commentProfileImg"
+                src="https://cdn-icons-png.flaticon.com/512/7669/7669149.png"
+                alt=""
+              />
+              <span className="commentTabLink">{comment.user.name}</span>
+            </div>
+          </Link>
+        </span>
+        <span className="commentDate">a minute ago</span>
       </div>
 
-      <div className={styles.postCommentContent}>{comment.content}</div>
+      {/* <div className={styles.postCommentContent}>{comment.content}</div> */}
+      <div className="commentCenter">
+        <span className="commentText">{comment.content}</span>
+      </div>
 
       <div className="commentBottom">
+        <div className="commentBottomLeft">
+          <img
+            className="commentLikeIcon"
+            src="https://github.com/safak/youtube/blob/react-social-ui/public/assets/like.png?raw=true"
+            onClick={handleCommentLikeClick}
+            alt=""
+          />
+
+          <span className="commentLikeCounter">{likes} people like it</span>
+        </div>
+
+        <div className="commentBottomRight">
+          <img
+            className="commentDeleteIcon"
+            src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png"
+            alt="comments-icon"
+            onClick={handleCommentDelete}
+          />
+        </div>
+      </div>
+
+      {/* <div className="commentBottom">
         <span>
           <img
             className="likeIcon"
@@ -70,12 +111,7 @@ const Comment = ({ comment, post }) => {
           <span>{likes} </span>
         </span>
         <button onClick={handleCommentDelete}>DELETE</button>
-
-        {/* <span>
-          <ReplyAllIcon /> <span>3</span>
-        </span>
-        <ReplyIcon /> */}
-      </div>
+      </div> */}
     </div>
   );
 };

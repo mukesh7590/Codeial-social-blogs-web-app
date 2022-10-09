@@ -17,15 +17,15 @@ const FriendsList = () => {
 
       {friends &&
         friends.map((friend) => (
-          <Link to={`/user/${friend.to_user._id}`}>
+          <Link className='emailLink' to={`/user/${friend.to_user._id}`}>
             <div className="friendListRow" key={`friend-${friend._id}`}>
               <img
-                className="avatarImg"
                 src="https://cdn-icons-png.flaticon.com/512/7669/7669149.png"
                 alt=""
+                className="topbarImg"
               />
 
-              <div className="emailText">{friend.to_user.email}</div>
+              <div className="emailText">{friend.to_user.name}</div>
             </div>
           </Link>
         ))}

@@ -13,7 +13,7 @@ const Login = () => {
   const [loggingIn, setLoggingIn] = useState(false);
 
   const auth = useAuth();
-  console.log("useAuth from login page => ", auth);
+  console.log('useAuth from login page => ', auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,49 +63,23 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="loginButton" disabled={loggingIn}>
-              {loggingIn ? 'Signing In....' : 'Sign In'}
-            </button>{' '}
-            <ToastContainer />
+
+            <div className="loginButtonContainer">
+              <button className="loginButton" disabled={loggingIn}>
+                {loggingIn ? 'Signing In....' : 'Sign In'}
+              </button>{' '}
+              <ToastContainer />
+              <Link to="/register">
+                <button className="loginRegisterButton">Sign Up </button>
+              </Link>
+            </div>
             <span className="loginForgot">Forgot Password?</span>
-            <Link to="/register">
-              <button className="loginRegisterButton">Sign Up </button>
-            </Link>
           </form>
         </div>
       </div>
     </div>
 
-    // <form className={styles.loginForm} onSubmit={handleSubmit}>
-    //   <span className={styles.loginSignupHeader}>Log In</span>
-
-    //   <div className={styles.field}>
-    //     <input
-    //       type="email"
-    //       placeholder="Email"
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-    //   </div>
-
-    //   <div className={styles.field}>
-    //     <input
-    //       type="password"
-    //       placeholder="Paasword"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //   </div>
-
-    //   <div className={styles.field}>
-    //     <button disabled={loggingIn}>
-    //       {loggingIn ? 'Logging in....' : 'Log In'}
-    //     </button>
-
-    //     <ToastContainer />
-    //   </div>
-    // </form>
-  );
-};
+  )  
+}
 
 export { Login };

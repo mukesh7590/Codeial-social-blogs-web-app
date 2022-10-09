@@ -74,20 +74,26 @@ button:focus {
 .editBtn {
   border: 1px solid #ef7917;
   box-sizing: border-box;
-  color: #ef7917;
+  background: #ef7917;
+  width: 130px;
+  color: #fff;
+  /* color: #ef7917; */
 }
 .saveBtn {
   background: #ef7917;
   color: #fff;
   border: none;
+  width: 130px;
   padding: 10px 20px;
 }
 .goBack {
-  color: #ef7917;
-  margin-top: 7px;
-  font-size: 13px;
+  /* color: #ef7917; */
+  margin-top: 20px;
+  width: 130px;
+  background: #ef7917;
+  color: #fff;
 }
 .goBack:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
 }

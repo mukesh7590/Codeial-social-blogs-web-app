@@ -2,27 +2,30 @@
   display: flex;
   flex-direction: column;
   
-  /* new csss */
-  /* background: #fff; */
   flex-grow: 0.2;
   flex-shrink: 1;
-  /* height: 50vh; */
+  
   box-sizing: border-box;
  
   /* border-radius: 4px; */
-  /* overflow-y: scroll; */
+  overflow-y: scroll none;
   
 }
-
+.emailLink{
+  text-decoration: none;
+}
 .noFriendText {
-  font-size: medium;
+  font-size: 16px;
 }
 .friendListRow {
+  /* padding: 10px; */
   display: flex;
-  margin-top: 20px;
+  margin: 15px 25px 0px 25px;
+  
   align-items: center;
 }
 .emailText {
-  margin-left: 5px;
-  font-size: medium;
+  margin-left: 18px;
+  font-size: 14px;
+  
 }

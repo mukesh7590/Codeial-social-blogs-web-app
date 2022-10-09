@@ -36,9 +36,9 @@ const CreatePost = () => {
       <div className="shareWrapper">
         <div className="shareTop">
           <img
-            className="avatarImg"
-            src="https://github.com/safak/youtube/blob/react-social-ui/public/assets/person/1.jpeg?raw=true"
+            src="https://cdn-icons-png.flaticon.com/512/7669/7669149.png"
             alt=""
+            className="topbarImg"
           />
           <textarea
             placeholder="What's in your mind ?"
