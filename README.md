@@ -2,8 +2,8 @@
 Social Bloging site for sharing the posts.
 
 ## About The Project
-Its social bloging application. where an User can create a Post, 
-User can make his own collection list of movies. where user can add & remove movies in their own collection list. 
+Its social bloging application. where an User can create a Post, comment and make friends 
+
 
 ## Features
 -  User can Signup & Login in this application.
